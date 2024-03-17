@@ -2,13 +2,15 @@ import React from "react";
 import "./NavBar.css";
 
 function NavBar() {
-  return <div>
-    <div className="logo">
+  return (
+    <div className="nav-container">
+      <div className="nav-logo">FIXGO</div>
 
-      FIXGO
-
+      <div className="nav-menu">
+        <button className="nav-profile"></button>
+      </div>
     </div>
-  </div>;
+  );
 }
 
 export default NavBar;
