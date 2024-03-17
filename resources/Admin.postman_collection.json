@@ -1,0 +1,4528 @@
+{
+	"info": {
+		"_postman_id": "c5e85905-22eb-46f0-8fd5-114156874f3e",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1627551",
+		"_collection_link": "https://restless-rocket-917974.postman.co/workspace/fixGo~80e56b1b-94e5-412a-9026-6b1f98a327d0/collection/1627551-c5e85905-22eb-46f0-8fd5-114156874f3e?action=share&source=collection_link&creator=1627551"
+	},
+	"item": [
+		{
+			"name": "Customer (General)",
+			"item": [
+				{
+					"name": "Ratings",
+					"item": [
+						{
+							"name": "Customer Review List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/rating/list/?page&pageSize",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rating",
+										"list",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null
+										},
+										{
+											"key": "pageSize",
+											"value": null
+										},
+										{
+											"key": "customer",
+											"value": "6467d66d21e55d16c71a4899",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/rating/delete/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rating",
+										"delete",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "64686e3e89f76307f5d4c8c4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "Notification List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/notification/?page&pageSize",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notification",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null
+										},
+										{
+											"key": "pageSize",
+											"value": null
+										},
+										{
+											"key": "customer",
+											"value": "6467d66d21e55d16c71a4899",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Notification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"forAll\": true,\n    \"title\": \"Welcome onboard\",\n    \"body\": \"Thank you for choosing FIXgo\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/notification",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notification"
+									],
+									"query": [
+										{
+											"key": "customer",
+											"value": "6467d66d21e55d16c71a4899",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Notification Detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/notification/detail/:notificationID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notification",
+										"detail",
+										":notificationID"
+									],
+									"query": [
+										{
+											"key": "customer",
+											"value": "6467d66d21e55d16c71a4899",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "notificationID",
+											"value": "64705e0ef5dadf792849e4e8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Driver",
+							"item": [
+								{
+									"name": "Add Driver",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119557\",\n    \"vehicleOwner\": \"id\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/user/driver",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"user",
+												"driver"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Driver Profile",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"_id\": \"6467b0c1fdfe2ef1a97a7200\",\n    \"name\": \"Aaditya Adhikari\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/user/driver",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"user",
+												"driver"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "My Driver List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/user/driver?archived=0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"user",
+												"driver"
+											],
+											"query": [
+												{
+													"key": "vehicleOwner",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "archived",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Remove Driver",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/user/driver/remove/:driverID",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"user",
+												"driver",
+												"remove",
+												":driverID"
+											],
+											"variable": [
+												{
+													"key": "driverID",
+													"value": "6467d66d21e55d16c71a4899"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Vehicle",
+							"item": [
+								{
+									"name": "Add Vehicle",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"vehicleOwner\": \"id\",\n    \"vehicleNumber\": \"Ba 81 Pa 1925\",\n    \"chassisNumber\": \"123\",\n    \"vehicleType\": \"Open Body\",\n    \"tyreType\": \"6 Tyre\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/vehicle",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"vehicle"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Vehicle Detail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"_id\": \"6467b0c1fdfe2ef1a97a7200\",\n    \"name\": \"Aaditya Adhikari\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/vehicle",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"vehicle"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "My ALL(under maintenance also) Vehicle List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/vehicle",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"vehicle"
+											],
+											"query": [
+												{
+													"key": "vehicleOwner",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "My Active Vehicle List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/vehicle/active",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"vehicle",
+												"active"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Vehicle",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/vehicle/delete/:itemID",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"vehicle",
+												"delete",
+												":itemID"
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "6467cbd784a7ac4071ec0c1d"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Customer List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										""
+									],
+									"query": [
+										{
+											"key": "userType",
+											"value": "RECEIVER",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Customer Detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/detail/:customerID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"detail",
+										":customerID"
+									],
+									"variable": [
+										{
+											"key": "customerID",
+											"value": "64686ba1c96dede71d47dade"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Make customer inactive",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/archive/:customerID/:activeStatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"archive",
+										":customerID",
+										":activeStatus"
+									],
+									"variable": [
+										{
+											"key": "customerID",
+											"value": "643b2c5cd7b91bab6e5dcfbb"
+										},
+										{
+											"key": "activeStatus",
+											"value": "off"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List archived customers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/admin/customer/?archived=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"customer",
+										""
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119557\",\n    \"userType\": \"RECEIVER\",\n    \"aadharIDNumber\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Customer Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sanjay Adhikari\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/edit-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"edit-profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bank",
+					"item": [
+						{
+							"name": "Add/Update  Bank Detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customer\": \"\",\n    \"bankName\": \"Citizens\",\n    \"accountNUmber\": \"1234A\",\n    \"branch\": \"Durbar Square\",\n    \"accountName\": \"Sanjaya Adhikari\",\n    \"swiftCode\": \"\",\n    \"ifscCode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/bank",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bank"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Bank List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/bank/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bank",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users Bank account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/bank/detail/?customer=6468605f2de399bca66a744a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bank",
+										"detail",
+										""
+									],
+									"query": [
+										{
+											"key": "customer",
+											"value": "6468605f2de399bca66a744a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Wallet",
+					"item": [
+						{
+							"name": "Fetch Customer wallet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bankName\": \"Citizens\",\n    \"accountNUmber\": \"1234A\",\n    \"branch\": \"Durbar Square\",\n    \"accountName\": \"Sanjaya Adhikari\",\n    \"swiftCode\": \"\",\n    \"ifscCode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/wallet/?customer=6468605f2de399bca66a744a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallet",
+										""
+									],
+									"query": [
+										{
+											"key": "customer",
+											"value": "6468605f2de399bca66a744a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Withdraw",
+					"item": [
+						{
+							"name": "Fetch all withdraw list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/withdraw/?status=PENDING",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"withdraw",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "PENDING"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch specific customer's withdraw list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/withdraw/?status=PENDING",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"withdraw",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "PENDING"
+										},
+										{
+											"key": "customer",
+											"value": "6468605f2de399bca66a744a",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch specific customer's withdraw list Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/withdraw/?customer=6468605f2de399bca66a744b",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"withdraw",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "COMPLETED",
+											"disabled": true
+										},
+										{
+											"key": "customer",
+											"value": "6468605f2de399bca66a744b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request for withdraw w.r.t. customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 10,\n    \"description\": \"January income\",\n    \"customer\": \"6468605f2de399bca66a744a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/withdraw/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"withdraw",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Accept Withdraw",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/withdraw/accept/:withdrawID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"withdraw",
+										"accept",
+										":withdrawID"
+									],
+									"variable": [
+										{
+											"key": "withdrawID",
+											"value": "6468c1c22d6468c1c22d8070c4f0a7afca8070c4f0a7afca"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Withdraw",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cancellationReason\": \"Balance should be minimum 200\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/withdraw/decline/:withdrawID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"withdraw",
+										"decline",
+										":withdrawID"
+									],
+									"variable": [
+										{
+											"key": "withdrawID",
+											"value": "6468c1c22d8070c4f0a7afca"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "Transactoion Detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/transaction/detail/:transactionID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"detail",
+										":transactionID"
+									],
+									"variable": [
+										{
+											"key": "transactionID",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch all/customer's Transaction List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Sanjay Adhikari\",\n    \"phone\": \"9823119554\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/transaction/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										""
+									],
+									"query": [
+										{
+											"key": "customer",
+											"value": "6468605f2de399bca66a744a",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Gst Request",
+					"item": [
+						{
+							"name": "Onboarding list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/user-with-gst?gstStatus=ACCEPTED",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"user-with-gst"
+									],
+									"query": [
+										{
+											"key": "gstStatus",
+											"value": "ACCEPTED"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Accept Gst Verififcation",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerID\": \"64a37c37de439088e64964f4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/user-with-gst/accept",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"user-with-gst",
+										"accept"
+									],
+									"query": [
+										{
+											"key": "userType",
+											"value": "RECEIVER",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reject Gst Verififcation",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerID\": \"64a37c37de439088e64964f4\",\n    \"cancellationReason\": \"Invalid Gst Number\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/user-with-gst/reject",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"user-with-gst",
+										"reject"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Forget-password",
+					"item": [
+						{
+							"name": "Request Forget Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"postman.setEnvironmentVariable(\"admin_forgetPasswordHash\", jsonData?.data?.hash);",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"emailOrPhone\": \"{{admin_email}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/admin/user/request-forget-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"request-forget-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validate Forget password OTP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"postman.setEnvironmentVariable(\"admin_forgetPasswordToken\", jsonData?.data?.token);",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"hash\": \"{{admin_forgetPasswordHash}}\",\n    \"emailOrPhone\": \"{{admin_email}}\",\n    \"otp\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/admin/user/validate-forget-password-otp",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"validate-forget-password-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(pm.request.body.raw);",
+											"if(pm.response.status == 'OK') {",
+											"    postman.setEnvironmentVariable(\"admin_password\", jsonData?.password);",
+											"}",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{admin_forgetPasswordToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/admin/user/reset-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.request.body.raw);",
+									"var jsonDataResponse = pm.response.json();",
+									"",
+									"if(pm.response.status == 'OK') {",
+									"    ",
+									"}",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin3@ukpa.com\",\n    \"password\": \"password\",\n    \"phone\": \"9800000011\",\n    \"name\": \"Dr. Harry\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user/ Assign role to user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.request.body.raw);",
+									"var jsonDataResponse = pm.response.json();",
+									"",
+									"if(pm.response.status == 'OK') {",
+									"    ",
+									"}",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"63d40f937bc523493265580c\",\n    \"privilege\": \"63cead203d5572561ccf58ae\",\n    \"name\": {\n        \"first\": \"Admin\",\n        \"last\": \"User\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(pm.response.status == 'OK') { ",
+									"    postman.setEnvironmentVariable(\"admin_refreshToken\", jsonData?.data?.refreshToken);",
+									"    postman.setEnvironmentVariable(\"admin_accessToken\", jsonData?.data?.accessToken);",
+									"}",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailOrPhone\": \"{{admin_email}}\",\n    \"password\": \"{{admin_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"refreshToken\", null);",
+									"postman.setEnvironmentVariable(\"accessToken\", null);",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_refreshToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/current",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List archived Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/?archived=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "1",
+									"description": "1 for archived"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get new access token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(pm.response.status == 'OK') { ",
+									"    postman.setEnvironmentVariable(\"admin_refreshToken\", jsonData?.data?.refreshToken);",
+									"    postman.setEnvironmentVariable(\"admin_accessToken\", jsonData?.data?.accessToken);",
+									"}",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_refreshToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/access-token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"access-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archive admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/toggle-status/:itemID/:toggleStatus",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"toggle-status",
+								":itemID",
+								":toggleStatus"
+							],
+							"variable": [
+								{
+									"key": "itemID",
+									"value": "63b9a960cd2244912a458db0"
+								},
+								{
+									"key": "toggleStatus",
+									"value": "on"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user//delete/:itemID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"",
+								"delete",
+								":itemID"
+							],
+							"variable": [
+								{
+									"key": "itemID",
+									"value": "63b9a960cd2244912a458db0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Admin Detail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/user/detail/:itemID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"user",
+								"detail",
+								":itemID"
+							],
+							"variable": [
+								{
+									"key": "itemID",
+									"value": "643a5f5eaf9498f29007d3b5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configuration",
+			"item": [
+				{
+					"name": "Dynamic List",
+					"item": [
+						{
+							"name": "Get Dynamic List",
+							"item": [
+								{
+									"name": "Get SEAT_TYPE  list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/:fieldType/",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												":fieldType",
+												""
+											],
+											"variable": [
+												{
+													"key": "fieldType",
+													"value": "SEAT_TYPE"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Add Dynamic List Items",
+							"item": [
+								{
+									"name": "POST Seat Type",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fieldType\":\"LANGUAGE\",\n    \"label\":\"English\",\n    \"description\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Read item detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/dynamic-list/detail/:itemID/?tenantID={{tenant_space_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"dynamic-list",
+										"detail",
+										":itemID",
+										""
+									],
+									"query": [
+										{
+											"key": "tenantID",
+											"value": "{{tenant_space_id}}",
+											"description": "only for testing, later decoded from access token"
+										}
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "638a424e0d58db4de176673b"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Get Item Detail",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/detail/:itemID/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"detail",
+												":itemID",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "377"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"179-muATTXq52hMbQUPgggHn6XJhZoA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:26:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"63b4f6cab4c3f9866af34d3b\",\n        \"fieldType\": \"FURNISHED_TYPE\",\n        \"label\": \"Semi Furnished\",\n        \"labelLowerCase\": \"semi furnished\",\n        \"value\": \"semi-furnished\",\n        \"canRemove\": true,\n        \"isLabelEditable\": true,\n        \"isValueEditable\": true,\n        \"isSeed\": false,\n        \"isActive\": true,\n        \"createdAt\": \"2023-01-04T03:47:22.074Z\",\n        \"updatedAt\": \"2023-01-04T03:47:22.074Z\",\n        \"__v\": 0\n    },\n    \"message\": \"\",\n    \"payload\": {}\n}"
+								},
+								{
+									"name": "ItemId MIssing Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/detail/:itemID/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"detail",
+												":itemID",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "190"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"be-KsSfh9IBGbSfCjIDWlICm9bEC/4\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:27:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": [\n        \"Invalid Item ID format.\"\n    ],\n    \"message\": \"Some Fields are required\",\n    \"payload\": [\n        {\n            \"value\": \":itemID\",\n            \"msg\": \"Invalid Item ID format.\",\n            \"param\": \"itemID\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Landlord Id Missing Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/detail/:itemID/?tenantID=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"detail",
+												":itemID",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"59-PCV3PoA/+z9fVVq5M5OUMg6O+w8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:27:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": {\n        \"level\": \"error\"\n    },\n    \"message\": \"Something Went Wrong!\",\n    \"payload\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Toggle Status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/dynamic-list/toggle-status/:itemID/:toggleStatus/?tenantID={{tenant_space_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"dynamic-list",
+										"toggle-status",
+										":itemID",
+										":toggleStatus",
+										""
+									],
+									"query": [
+										{
+											"key": "tenantID",
+											"value": "{{tenant_space_id}}",
+											"description": "only for testing, later decoded from access token"
+										}
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "638a424e0d58db4de176673b"
+										},
+										{
+											"key": "toggleStatus",
+											"value": "on",
+											"description": "either 'on' or 'off'"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Toggle Status Sucess",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/toggle-status/:itemID/:toggleStatus/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"toggle-status",
+												":itemID",
+												":toggleStatus",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												},
+												{
+													"key": "toggleStatus",
+													"value": "on",
+													"description": "either 'on' or 'off'"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "94"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5e-uZ5t6rz0rjJbqYPwNNf7phMqpLU\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:33:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Active status of item has been turned on\",\n    \"payload\": {}\n}"
+								},
+								{
+									"name": "Invalid Item Id Format",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/toggle-status/:itemID/:toggleStatus/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"toggle-status",
+												":itemID",
+												":toggleStatus",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": ""
+												},
+												{
+													"key": "toggleStatus",
+													"value": "on",
+													"description": "either 'on' or 'off'"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "190"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"be-KsSfh9IBGbSfCjIDWlICm9bEC/4\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:33:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": [\n        \"Invalid Item ID format.\"\n    ],\n    \"message\": \"Some Fields are required\",\n    \"payload\": [\n        {\n            \"value\": \":itemID\",\n            \"msg\": \"Invalid Item ID format.\",\n            \"param\": \"itemID\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Missing  Status Value",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/toggle-status/:itemID/:toggleStatus/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"toggle-status",
+												":itemID",
+												":toggleStatus",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												},
+												{
+													"key": "toggleStatus",
+													"value": "",
+													"description": "either 'on' or 'off'"
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "230"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e6-yJZYcKnaOnzpC81Of9Tol8fkh4Q\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:34:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": [\n        \"Toggle status contains invalid value.\"\n    ],\n    \"message\": \"Some Fields are required\",\n    \"payload\": [\n        {\n            \"value\": \":toggleStatus\",\n            \"msg\": \"Toggle status contains invalid value.\",\n            \"param\": \"toggleStatus\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "MIssing Landlord ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/toggle-status/:itemID/:toggleStatus/?tenantID=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"toggle-status",
+												":itemID",
+												":toggleStatus",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												},
+												{
+													"key": "toggleStatus",
+													"value": "off",
+													"description": "either 'on' or 'off'"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"59-PCV3PoA/+z9fVVq5M5OUMg6O+w8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:36:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": {\n        \"level\": \"error\"\n    },\n    \"message\": \"Something Went Wrong!\",\n    \"payload\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Item",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/dynamic-list/delete/:itemID/?tenantID={{tenant_space_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"dynamic-list",
+										"delete",
+										":itemID",
+										""
+									],
+									"query": [
+										{
+											"key": "tenantID",
+											"value": "{{tenant_space_id}}",
+											"description": "only for testing, later decoded from access token"
+										}
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "638a424e0d58db4de176673b"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Item Sucess",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/delete/:itemID/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"delete",
+												":itemID",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "81"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"51-OGY64uWMmDDP2DNWFA2IeeGnHMY\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:46:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": true,\n    \"message\": \"Item: undefined is Deleted!\",\n    \"payload\": {}\n}"
+								},
+								{
+									"name": "MIssing/Invalid Item Id",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/delete/:itemID/?tenantID=6382498fb305d2decda5ada1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"delete",
+												":itemID",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "6382498fb305d2decda5ada1",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "190"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"be-KsSfh9IBGbSfCjIDWlICm9bEC/4\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:47:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": [\n        \"Invalid Item ID format.\"\n    ],\n    \"message\": \"Some Fields are required\",\n    \"payload\": [\n        {\n            \"value\": \":itemID\",\n            \"msg\": \"Invalid Item ID format.\",\n            \"param\": \"itemID\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Landlord ID Missing",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/dynamic-list/delete/:itemID/?tenantID=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dynamic-list",
+												"delete",
+												":itemID",
+												""
+											],
+											"query": [
+												{
+													"key": "tenantID",
+													"value": "",
+													"description": "only for testing, later decoded from access token"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemID",
+													"value": "63b4f6cab4c3f9866af34d3b"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"59-PCV3PoA/+z9fVVq5M5OUMg6O+w8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Jan 2023 04:47:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"data\": {\n        \"level\": \"error\"\n    },\n    \"message\": \"Something Went Wrong!\",\n    \"payload\": {}\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Manage Settings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pickupTimeShouldAhead\": 48,\n    \"allowCompanyCancel\": false,\n    \"postExpiryAfter\": 24,\n    \"bidAmountDeviationTransporter\": 20,\n    \"bidAmountDeviationVehicleOwner\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/settings/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"settings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/settings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Privilege",
+			"item": [
+				{
+					"name": "List admin privilege",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/privilege/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"privilege",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List archived privileges",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/admin/privilege?archived=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"privilege"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create admin Privilege",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.request.body.raw);",
+									"var jsonDataResponse = pm.response.json();",
+									"",
+									"if(pm.response.status == 'OK') {",
+									"    ",
+									"}",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Finance\",\n    \"granted\": {\n        \"CUSTOMER\": {\n            \"EDIT_CUSTOMER\": true,\n            \"ADD_CUSTOMER\": true,\n            \"READ_CUSTOMER\": true,\n            \"DEL_CUSTOMER\": true\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/privilege/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"privilege",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit admin Privilege",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.request.body.raw);",
+									"var jsonDataResponse = pm.response.json();",
+									"",
+									"if(pm.response.status == 'OK') {",
+									"    ",
+									"}",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"63cead203d5572561ccf58ae\",\n    \"name\": \"Admin Role\",\n    \"granted\": {\n        \"CUSTOMER\": {\n            \"EDIT_CUSTOMER\": true,\n            \"ADD_CUSTOMER\": true,\n            \"READ_CUSTOMER\": true,\n            \"DEL_CUSTOMER\": true\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/privilege/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"privilege",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archived Privilege",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.request.body.raw);",
+									"var jsonDataResponse = pm.response.json();",
+									"",
+									"if(pm.response.status == 'OK') {",
+									"    ",
+									"}",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"63cead203d5572561ccf58ac\",\n    \"name\": \"Admin Role\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/admin/privilege/archive/:itemID/:toggleStatus",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"privilege",
+								"archive",
+								":itemID",
+								":toggleStatus"
+							],
+							"variable": [
+								{
+									"key": "itemID",
+									"value": "63b9bbfcc3e0fd4860d56569"
+								},
+								{
+									"key": "toggleStatus",
+									"value": "on"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tools",
+			"item": [
+				{
+					"name": "notes",
+					"item": [
+						{
+							"name": "List notes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/note/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List archived notes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/note?archived=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note"
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List notes by PID, UID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/note?archived=0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note"
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "0"
+										},
+										{
+											"key": "property",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "unit",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create notes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(pm.request.body.raw);",
+											"var jsonDataResponse = pm.response.json();",
+											"",
+											"if(pm.response.status == 'OK') {",
+											"    ",
+											"}",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Address Notes for candidate\",\n    \"property\": \"63df69a42f096aab461feab6\",\n    \"note\": \"<p>Address information about clearner and engineers in new property</p>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/note/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Note",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(pm.request.body.raw);",
+											"var jsonDataResponse = pm.response.json();",
+											"",
+											"if(pm.response.status == 'OK') {",
+											"    ",
+											"}",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_id\": \"63df7d6dd02009a1d8b1baea\",\n    \"name\": \"Address Notes for candidates\",\n    \"note\": \"<p>Address information about clearner and engineers in new property</p>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/note/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Archived Note",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/note/archive/:itemID/:toggleStatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note",
+										"archive",
+										":itemID",
+										":toggleStatus"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63df7ea2c605553f75ea28ed"
+										},
+										{
+											"key": "toggleStatus",
+											"value": "off"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get note detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/note/detail/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note",
+										"detail",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63df7ea2c605553f75ea28ed"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Note",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/note/delete/:itemID/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"note",
+										"delete",
+										":itemID",
+										""
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63df9ab967f70dcae74c931a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Activity",
+					"item": [
+						{
+							"name": "List activity",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/activity/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"activity",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get activity detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/activity/detail/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"activity",
+										"detail",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63df7ea2c605553f75ea28ed"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Document",
+					"item": [
+						{
+							"name": "List document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/document/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List archived document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/document/?archived=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										""
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(pm.request.body.raw);",
+											"var jsonDataResponse = pm.response.json();",
+											"",
+											"if(pm.response.status == 'OK') {",
+											"    ",
+											"}",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Certificate\",\n    \"documents\": [\"file_name_1\", \"file_name_2\"],\n    \"dateOfValidation\": \"2023/01/01\",\n    \"documentType\": \"63df67d7bccf0a17f52f030d\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/document/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(pm.request.body.raw);",
+											"var jsonDataResponse = pm.response.json();",
+											"",
+											"if(pm.response.status == 'OK') {",
+											"    ",
+											"}",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_id\": \"63df7d6dd02009a1d8b1baea\",\n    \"description\": \"Address Notes for candidates\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/document/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Archived document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/document/archive/:itemID/:toggleStatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"archive",
+										":itemID",
+										":toggleStatus"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63e14b8a72cdb092933530c8"
+										},
+										{
+											"key": "toggleStatus",
+											"value": "off"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get document detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/document/detail/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"detail",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63e14b8a72cdb092933530c8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Document",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/document/delete/:itemID/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"delete",
+										":itemID",
+										""
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63e14b8a72cdb092933530c8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "File",
+					"item": [
+						{
+							"name": "Upload File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imageTitle",
+											"value": "profile picture",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/macos/Documents/Documents/citizen/pp.jpeg"
+										},
+										{
+											"key": "space",
+											"value": "public",
+											"description": "['public', 'private']",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/file/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"file",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get file",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/file/detail/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"file",
+										"detail",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "profile-picture_1676119824.jpeg"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete file [not needed]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/file/delete/:itemID/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"file",
+										"delete",
+										":itemID",
+										""
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "profile-picture_1676119824.jpeg"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Trash",
+					"item": [
+						{
+							"name": "List Trash",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/trash/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trash",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete single Trash Item",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/trash/delete/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trash",
+										"delete",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63dff56dd99fdb91af9c47c2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Empty Bin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/trash/empty/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trash",
+										"empty",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Trash detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/trash/detail/:itemID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trash",
+										"detail",
+										":itemID"
+									],
+									"variable": [
+										{
+											"key": "itemID",
+											"value": "63dff56dd99fdb91af9c47c2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{admin_accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
