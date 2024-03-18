@@ -1,14 +1,16 @@
 import React from "react";
 import "./NavBar.css";
 
-function NavBar() {
+function NavBar({ accessToken }) {
   return (
     <div className="nav-container">
       <div className="nav-logo">FIXGO</div>
 
-      <div className="nav-menu">
-        <button className="nav-profile"></button>
-      </div>
+      {accessToken && (
+        <div className="nav-menu">
+          <button className="nav-profile"></button>
+        </div>
+      )}
     </div>
   );
 }

@@ -11,6 +11,7 @@ import axios from "axios";
 function App() {
   const [accessToken, setAccessToken] = useState(null);
 
+
   const handleLogin = (email, password) => {
     let data = {
       emailOrPhone: email,
@@ -37,7 +38,7 @@ function App() {
   const handleLogout = () => {
     const token = localStorage.getItem("accessToken");
 
-    console.log(token)
+
 
     localStorage.clear();
     setAccessToken(null);
@@ -82,8 +83,8 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <button onClick={handleLogout}>Logout</button>
+      <NavBar accessToken={accessToken} />
+      <button onClick={handleLogout} >Logout</button>
     </>
   );
 }

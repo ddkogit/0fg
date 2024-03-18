@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import Button from "../../Components/Button/Button";
 import NavBar from "../../Components/NavBar/NavBar";
-function Login({handleLogin}) {
+function Login({handleLogin,accessToken}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,9 +12,11 @@ function Login({handleLogin}) {
 
   }
 
+
+
   return (
     <>
-      <NavBar />
+      <NavBar accessToken={accessToken}/>
       <div className="login-container">
         <div className="login-welcome"> Welcome</div>
 
