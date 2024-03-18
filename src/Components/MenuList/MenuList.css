@@ -1,0 +1,29 @@
+.menu-container {
+  /*     
+    display: flex;
+    justify-content:flex-end; */
+  position: relative;
+}
+
+.menu-items {
+  background-color: var(--dark-blue);
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-items > li {
+  color: var(--white);
+  list-style: none;
+  padding: 10px 100px 10px 20px;
+  border: 1px solid var(--white);
+}
+
+
+.hidden {
+  display: none;
+}
