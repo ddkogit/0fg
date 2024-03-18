@@ -1,27 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import Button from "../../Components/Button/Button";
-function Login() {
+import NavBar from "../../Components/NavBar/NavBar";
+function Login({handleLogin}) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    handleLogin(email,password);
+
+  }
+
   return (
-    <div className="login-container">
-      <div>Welcome</div>
+    <>
+      <NavBar />
+      <div className="login-container">
+        <div className="login-welcome"> Welcome</div>
 
-      <form className="login-form">
-        <label>
-          {" "}
-          Email Address
-        </label>
-          <input type="email" placeholder="Email" />
+        <form
+        onSubmit={handleSubmit}
+        className="login-form">
+          <label>Email Address</label>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="Email"
+          />
 
-        <label>
-          {" "}
-          Password
-        </label>
-          <input type="password" placeholder="Password" />
+          <label>Password</label>
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="Password"
+          />
 
-        <Button text={"Login"} />
-      </form>
-    </div>
+          <Button text={"Login"} />
+        </form>
+      </div>
+    </>
   );
 }
 
