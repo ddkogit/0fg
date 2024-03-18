@@ -14,14 +14,26 @@
   margin: 0;
   padding: 0;
   cursor: pointer;
+  
 }
 
-.menu-items > li {
+.menu-items > li{
   color: var(--white);
   list-style: none;
+
   padding: 10px 100px 10px 20px;
   border: 1px solid var(--white);
 }
+
+.menu-items > li > *{
+  text-decoration: none;
+  
+}
+
+.menu-items > li > *:visited{
+  color: var(--white);
+}
+
 
 
 .hidden {
