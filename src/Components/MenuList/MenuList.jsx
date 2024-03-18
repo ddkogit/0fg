@@ -8,12 +8,14 @@ function MenuList({ mouseStatus }) {
       <div className={mouseStatus ? "menu-container hidden" : "menu-container"}>
         <ul className="menu-items">
         <li>
-          <Link to={"/profile"}>
+          <Link to={"/profile"} >
         My Profile
           </Link>
       </li>
       <li>
+        <Link to={"/adminlist"}>
         Users
+        </Link>
       </li>
    
           <li>Logout </li>

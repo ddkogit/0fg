@@ -9,9 +9,10 @@ import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MenuList from "./Components/MenuList/MenuList";
 import UserProfile from "./Pages/UserProfile/UserProfile";
-
+import AdminList from "./Pages/AdminList/AdminList";
 function App() {
   const [accessToken, setAccessToken] = useState(null);
+
 
   const handleLogin = (email, password) => {
     let data = {
@@ -43,6 +44,28 @@ function App() {
     setAccessToken(null);
   };
 
+  const handleProfileLoad = () => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: `${url}/api/v1/admin/user/current`,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+
+    return axios.request(config)
+    .then((response) => {
+      
+        return response.data.data;
+    })
+    .catch((error) => {
+      console.log(error);
+
+    });
+    
+  };
+
   if (!accessToken) {
     return (
       <>
@@ -69,7 +92,11 @@ function App() {
             }
           />
 
-          <Route path="/profile" element={<UserProfile />} />
+          <Route
+            path="/profile"
+            element={<UserProfile handleProfileLoad={handleProfileLoad}  />}
+          />
+          <Route path="/adminlist" element={<AdminList />} />
         </Routes>
       </BrowserRouter>
     </>
