@@ -13,7 +13,6 @@ import AdminList from "./Pages/AdminList/AdminList";
 function App() {
   const [accessToken, setAccessToken] = useState(null);
 
-
   const handleLogin = (email, password) => {
     let data = {
       emailOrPhone: email,
@@ -40,11 +39,11 @@ function App() {
   const handleLogout = () => {
     const token = localStorage.getItem("accessToken");
 
-    localStorage.clear();
+    localStorage.removeItem("accessToken");
     setAccessToken(null);
   };
 
-  const handleProfileLoad = () => {
+  const handleProfileLoad =  () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
@@ -54,16 +53,34 @@ function App() {
       },
     };
 
-    return axios.request(config)
-    .then((response) => {
-      
+    return axios
+      .request(config)
+      .then((response) => {
         return response.data.data;
-    })
-    .catch((error) => {
-      console.log(error);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    });
-    
+  const handleUserLoad =  () => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: `${url}/api/v1/admin/user`,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+
+    return axios
+      .request(config)
+      .then((response) => {
+        return response.data.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   if (!accessToken) {
@@ -94,9 +111,13 @@ function App() {
 
           <Route
             path="/profile"
-            element={<UserProfile handleProfileLoad={handleProfileLoad}  />}
+            element={<UserProfile handleProfileLoad={handleProfileLoad} />}
           />
-          <Route path="/adminlist" element={<AdminList />} />
+          <Route
+            path="/adminlist"
+            element={<AdminList  handleUserLoad={handleUserLoad}/>}
+           
+          />
         </Routes>
       </BrowserRouter>
     </>
