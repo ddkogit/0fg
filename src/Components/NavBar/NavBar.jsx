@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./NavBar.css";
 import MenuList from "../MenuList/MenuList";
 
-function NavBar({ accessToken }) {
+function NavBar({handleLogout}) {
   const [mouseStatus,setMouseStatus] = useState(true);
   return (
     <div>
@@ -10,16 +10,15 @@ function NavBar({ accessToken }) {
         <div className="nav-logo">FIXGO</div>
 
           <div className="nav-menu">
-        {accessToken && (
+        
             <button 
             onClick={()=>setMouseStatus(!mouseStatus)}
-            // onMouseLeave={()=>setMouseStatus(!mouseStatus)}
             className="nav-profile"></button>
-            )}
+           
             </div>
 
       </div>
-        <MenuList  mouseStatus={mouseStatus}/>
+        <MenuList  mouseStatus={mouseStatus} handleLogout={handleLogout}/>
     </div>
   );
 }

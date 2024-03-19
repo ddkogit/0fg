@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
@@ -37,13 +37,12 @@ function App() {
   };
 
   const handleLogout = () => {
-    const token = localStorage.getItem("accessToken");
 
     localStorage.removeItem("accessToken");
     setAccessToken(null);
   };
 
-  const handleProfileLoad =  () => {
+  const handleProfileLoad = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
@@ -63,7 +62,7 @@ function App() {
       });
   };
 
-  const handleUserLoad =  () => {
+  const handleUserLoad = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
@@ -83,17 +82,27 @@ function App() {
       });
   };
 
-  if (!accessToken) {
+  
+
     return (
       <>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login handleLogin={handleLogin} />} />
+            <Route path="/" element={<Login handleLogin={handleLogin} accessToken={accessToken} />} />
+            <Route
+            path="/profile"
+            element={<UserProfile handleProfileLoad={handleProfileLoad} handleLogout={handleLogout} accessToken={accessToken}/>}
+            
+          />
+          <Route
+            path="/adminlist"
+            element={<AdminList handleUserLoad={handleUserLoad} handleLogout={handleLogout} accessToken={accessToken} />}
+          />
           </Routes>
         </BrowserRouter>
       </>
     );
-  }
+  
 
   return (
     <>
@@ -108,16 +117,9 @@ function App() {
               </>
             }
           />
+          
 
-          <Route
-            path="/profile"
-            element={<UserProfile handleProfileLoad={handleProfileLoad} />}
-          />
-          <Route
-            path="/adminlist"
-            element={<AdminList  handleUserLoad={handleUserLoad}/>}
-           
-          />
+         
         </Routes>
       </BrowserRouter>
     </>

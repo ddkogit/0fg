@@ -1,3 +1,8 @@
+.adminlist-container{
+    display: flex;
+    
+}
+
 .adminlist-bottom{
     margin-top: 10px;
     display: flex;
