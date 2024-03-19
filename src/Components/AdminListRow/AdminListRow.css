@@ -5,6 +5,11 @@
     justify-content: space-evenly;
     padding: 10px;
     color: var(--white);
+    
+}
+
+.adminlistrow-container>span{
+    width: 120px;
 }
 
 .bold{

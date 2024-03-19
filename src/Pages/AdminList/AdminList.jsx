@@ -74,7 +74,7 @@ function AdminList({handleUserLoad}) {
             data && data.docs.map((item,i)=>(
               <AdminListRow key={item.id} 
               sn={i+1}
-              name={`${item.name.first} ${item.name.last}`}
+              name={item.name.first && item.name.last ? `${item.name.first} ${item.name.last}` :"N/A"}
               email={item.email}
               joindate={item.createdAt}
               
