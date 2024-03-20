@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import "./AddUser.css";
 import Button from "../../Components/Button/Button";
-
+import { useNavigate } from "react-router-dom";
 
 function AddUser({ handleAddUser1 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
-  const handleAddFirst =(e)=>{
+  const handleAddFirst = (e) => {
     e.preventDefault();
-    handleAddUser1(email,password,phone,name);
-  }
+    handleAddUser1(email, password, phone, name);
+    navigate("/adduser2");
+  };
 
   return (
     <div>
-      <div className="login-container">
+      <div className=" adduser-container">
         <div className="login-welcome"> Welcome</div>
 
         <form onSubmit={handleAddFirst} className="login-form">
@@ -50,7 +52,7 @@ function AddUser({ handleAddUser1 }) {
             placeholder="Name"
           />
 
-          <button > Next</button>
+          <button> Next</button>
         </form>
       </div>
     </div>

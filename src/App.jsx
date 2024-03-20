@@ -11,6 +11,7 @@ import MenuList from "./Components/MenuList/MenuList";
 import UserProfile from "./Pages/UserProfile/UserProfile";
 import AdminList from "./Pages/AdminList/AdminList";
 import AddUser from "./Pages/AddUser/AddUser";
+import AddUser2 from "./Pages/AddUser/AddUser2";
 function App() {
   const [accessToken, setAccessToken] = useState(null);
 
@@ -112,8 +113,24 @@ function App() {
       });
   };
 
-  const handleDelete = () => {
-    console.log("delete");
+  const handleDelete = (id) => {
+    let config = {
+      method: "delete",
+      maxBodyLength: Infinity,
+      url: `${url}/api/v1/admin/user//delete/${id}`,
+      headers: { 
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjVjNWFjNjI5NzAyZjcwNGNkZDI4MyIsImxvZ2luIjoxLCJpc0FkbWluIjp0cnVlLCJ1dWlkIjoiNzkwOTQ3MDAzNTQ4OTI1MyIsImlhdCI6MTcxMDgxODQ5MTQwMywiZXhwIjoxNzEwODE4NzUwNjAzfQ.MEFgzrqJB1tOUErhA5EHr0emjX7EGyREg5AMnaKaOL8'
+      }
+    };
+
+    return axios
+      .request(config)
+      .then((response) => {
+        console.log("user deleted", response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   const handleView = () => {
     console.log("view");
@@ -159,6 +176,8 @@ function App() {
             path="/adduser"
             element={<AddUser handleAddUser1={handleAddUser1} />}
           />
+
+          <Route path="adduser2" element={<AddUser2 />} />
         </Routes>
       </BrowserRouter>
     </>

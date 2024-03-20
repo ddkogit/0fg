@@ -11,8 +11,10 @@ function AdminListRow({
   handleDelete,
   handleEdit,
   handleView,
+  id
 }) {
-  const handleActions = (action) => {
+  const handleActions = (action,id) => {
+   
     switch (action) {
       case "edit":
         handleEdit();
@@ -21,7 +23,7 @@ function AdminListRow({
         handleView();
         break;
       case "delete":
-        handleDelete();
+        handleDelete(id);
         break;
       default:
         break;
@@ -43,7 +45,7 @@ function AdminListRow({
         {action.map((actionText, index) => (
           <button
             key={index}
-            onClick={(e) => handleActions(e.target.textContent)}
+            onClick={(e) => handleActions(e.target.textContent,id)}
           >
             {actionText}
           </button>

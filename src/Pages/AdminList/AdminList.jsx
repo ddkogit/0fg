@@ -16,7 +16,7 @@ function AdminList({ handleUserLoad, handleLogout, accessToken,handleDelete,hand
   };
 
   const handleAddUser = () => {
-    console.log("add user");
+   
     navigate("/adduser");
   };
 
@@ -30,6 +30,10 @@ function AdminList({ handleUserLoad, handleLogout, accessToken,handleDelete,hand
 
         const data = await handleUserLoad();
         setData(data);
+
+        // console.log(data.docs[1]._id)
+
+       
         
       } catch (error) {
         console.log("error occured", error);
@@ -93,6 +97,7 @@ function AdminList({ handleUserLoad, handleLogout, accessToken,handleDelete,hand
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
                 handleView={handleView}
+                id = {item._id}
               />
             ))}
         </div>
