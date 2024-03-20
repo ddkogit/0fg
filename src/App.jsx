@@ -93,16 +93,21 @@ function App() {
       name: name,
     };
 
-    axios
-      .post(`${url}/api/v1/admin/user/register`, data)
-      .then((response) => {
-        console.log("user Created");
-        // navigate("/adminlist")
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: `${url}/api/v1/admin/user/register`,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: data,
+    };
 
-        // const accessToken = response.data.data.accessToken;
-        // // setAccessToken(response.data.data.accessToken);
-        // localStorage.setItem("accessToken", accessToken);
-        // setAccessToken(accessToken);
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
       })
       .catch((error) => {
         console.error("Error:", error.message);
@@ -118,9 +123,10 @@ function App() {
       method: "delete",
       maxBodyLength: Infinity,
       url: `${url}/api/v1/admin/user//delete/${id}`,
-      headers: { 
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjVjNWFjNjI5NzAyZjcwNGNkZDI4MyIsImxvZ2luIjoxLCJpc0FkbWluIjp0cnVlLCJ1dWlkIjoiNzkwOTQ3MDAzNTQ4OTI1MyIsImlhdCI6MTcxMDgxODQ5MTQwMywiZXhwIjoxNzEwODE4NzUwNjAzfQ.MEFgzrqJB1tOUErhA5EHr0emjX7EGyREg5AMnaKaOL8'
-      }
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjVjNWFjNjI5NzAyZjcwNGNkZDI4MyIsImxvZ2luIjoxLCJpc0FkbWluIjp0cnVlLCJ1dWlkIjoiNzkwOTQ3MDAzNTQ4OTI1MyIsImlhdCI6MTcxMDgxODQ5MTQwMywiZXhwIjoxNzEwODE4NzUwNjAzfQ.MEFgzrqJB1tOUErhA5EHr0emjX7EGyREg5AMnaKaOL8",
+      },
     };
 
     return axios
