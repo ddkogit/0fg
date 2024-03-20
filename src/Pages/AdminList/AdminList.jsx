@@ -5,7 +5,7 @@ import Button from "../../Components/Button/Button";
 import AdminListRow from "../../Components/AdminListRow/AdminListRow";
 import NavBar from "../../Components/NavBar/NavBar";
 
-function AdminList({ handleUserLoad, handleLogout,accessToken }) {
+function AdminList({ handleUserLoad, handleLogout, accessToken }) {
   const navigate = useNavigate();
 
   const [data, setData] = useState(null);
@@ -13,6 +13,11 @@ function AdminList({ handleUserLoad, handleLogout,accessToken }) {
 
   const goBack = () => {
     navigate(-1);
+  };
+
+  const handleAddUser = () => {
+    console.log("add user");
+    navigate("/adduser");
   };
 
   useEffect(() => {
@@ -25,7 +30,7 @@ function AdminList({ handleUserLoad, handleLogout,accessToken }) {
 
         const data = await handleUserLoad();
         setData(data);
-        console.log(data);
+        
       } catch (error) {
         console.log("error occured", error);
       } finally {
@@ -34,7 +39,7 @@ function AdminList({ handleUserLoad, handleLogout,accessToken }) {
     };
     fetchdata();
 
-    console.log(data);
+  
   }, [handleUserLoad]);
 
   if (isLoading) {
@@ -58,7 +63,10 @@ function AdminList({ handleUserLoad, handleLogout,accessToken }) {
       <div>
         <div className="adminlist-top">
           <span>Users</span>
-          <Button text={"Add User"} />
+          <div onClick={handleAddUser}>
+
+          <Button text={"Add User"}  />
+          </div>
         </div>
         <div className="adminlist-bottom">
           <AdminListRow
@@ -66,7 +74,7 @@ function AdminList({ handleUserLoad, handleLogout,accessToken }) {
             name="Name"
             email="Email"
             joindate="Join date"
-            action="Action"
+            action={["Action"]}
             bold={true}
           />
           {data &&
@@ -81,6 +89,7 @@ function AdminList({ handleUserLoad, handleLogout,accessToken }) {
                 }
                 email={item.email}
                 joindate={item.createdAt}
+                action={["edit","view","delete"]}
               />
             ))}
         </div>

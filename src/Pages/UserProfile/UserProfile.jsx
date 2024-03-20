@@ -25,7 +25,7 @@ function UserProfile({ handleProfileLoad, handleLogout, accessToken }) {
 
         const data = await handleProfileLoad();
         setData(data);
-        console.log(data);
+       
       } catch (error) {
         console.log("error occured");
       } finally {
@@ -34,7 +34,7 @@ function UserProfile({ handleProfileLoad, handleLogout, accessToken }) {
     };
     fetchdata();
 
-    console.log(data);
+  
   }, [handleProfileLoad]);
 
   if (isLoading) {

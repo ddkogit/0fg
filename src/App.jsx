@@ -6,12 +6,15 @@ import Login from "./Pages/Login/Login";
 
 import { url } from "./Data";
 import axios from "axios";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import MenuList from "./Components/MenuList/MenuList";
 import UserProfile from "./Pages/UserProfile/UserProfile";
 import AdminList from "./Pages/AdminList/AdminList";
+import AddUser from "./Pages/AddUser/AddUser";
 function App() {
   const [accessToken, setAccessToken] = useState(null);
+
+  // const navigate = useNavigate();
 
   const handleLogin = (email, password) => {
     let data = {
@@ -82,6 +85,36 @@ function App() {
       });
   };
 
+  const handleAddUser1 =(email,password,phone,name)=>{
+    let data = {
+      email: email,
+      password: password,
+      phone:phone,
+      name:name
+    };
+
+    axios
+    .post(`${url}/api/v1/admin/user/register`, data)
+    .then((response) => {
+      console.log("user Created");
+      // navigate("/adminlist")
+      
+      // const accessToken = response.data.data.accessToken;
+      // // setAccessToken(response.data.data.accessToken);
+      // localStorage.setItem("accessToken", accessToken);
+      // setAccessToken(accessToken);
+    })
+    .catch((error) => {
+      console.error("Error:", error.message);
+      if (error.response) {
+        console.error("Status code:", error.response.status);
+        console.error("Response data:", error.response.data);
+      }
+    });
+
+  }
+  
+
   
 
     return (
@@ -98,32 +131,12 @@ function App() {
             path="/adminlist"
             element={<AdminList handleUserLoad={handleUserLoad} handleLogout={handleLogout} accessToken={accessToken} />}
           />
+          <Route path="/adduser" element={<AddUser handleAddUser1={handleAddUser1} />} />
           </Routes>
         </BrowserRouter>
       </>
     );
-  
 
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <NavBar accessToken={accessToken} />
-                <button onClick={handleLogout}>Logout</button>
-              </>
-            }
-          />
-          
-
-         
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
 }
 
 export default App;
