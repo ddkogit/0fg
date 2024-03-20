@@ -1,11 +1,32 @@
 import React from "react";
 import "./AdminListRow.css";
-function AdminListRow({ sn, name, email, role, joindate, action, bold }) {
-
-    const handleActions=(action)=>{
-      
-
+function AdminListRow({
+  sn,
+  name,
+  email,
+  role,
+  joindate,
+  action,
+  bold,
+  handleDelete,
+  handleEdit,
+  handleView,
+}) {
+  const handleActions = (action) => {
+    switch (action) {
+      case "edit":
+        handleEdit();
+        break;
+      case "view":
+        handleView();
+        break;
+      case "delete":
+        handleDelete();
+        break;
+      default:
+        break;
     }
+  };
 
   return (
     <div
@@ -19,14 +40,14 @@ function AdminListRow({ sn, name, email, role, joindate, action, bold }) {
       <span>{role}</span>
       <span>{joindate}</span>
       <div className="actions">
-        {
-          action.map((actionText,index)=>(
-            <button key={index} onClick={(e)=>handleActions(e.target.textContent)}>
-              {actionText}
-            </button>
-          ))
-        }
-
+        {action.map((actionText, index) => (
+          <button
+            key={index}
+            onClick={(e) => handleActions(e.target.textContent)}
+          >
+            {actionText}
+          </button>
+        ))}
       </div>
     </div>
   );

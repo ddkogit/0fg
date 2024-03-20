@@ -5,7 +5,7 @@ import Button from "../../Components/Button/Button";
 import AdminListRow from "../../Components/AdminListRow/AdminListRow";
 import NavBar from "../../Components/NavBar/NavBar";
 
-function AdminList({ handleUserLoad, handleLogout, accessToken }) {
+function AdminList({ handleUserLoad, handleLogout, accessToken,handleDelete,handleEdit,handleView }) {
   const navigate = useNavigate();
 
   const [data, setData] = useState(null);
@@ -79,7 +79,7 @@ function AdminList({ handleUserLoad, handleLogout, accessToken }) {
           />
           {data &&
             data.docs.map((item, i) => (
-              <AdminListRow
+              <AdminListRow 
                 key={item.id}
                 sn={i + 1}
                 name={
@@ -90,6 +90,9 @@ function AdminList({ handleUserLoad, handleLogout, accessToken }) {
                 email={item.email}
                 joindate={item.createdAt}
                 action={["edit","view","delete"]}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                handleView={handleView}
               />
             ))}
         </div>

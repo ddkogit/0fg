@@ -40,7 +40,6 @@ function App() {
   };
 
   const handleLogout = () => {
-
     localStorage.removeItem("accessToken");
     setAccessToken(null);
   };
@@ -85,58 +84,85 @@ function App() {
       });
   };
 
-  const handleAddUser1 =(email,password,phone,name)=>{
+  const handleAddUser1 = (email, password, phone, name) => {
     let data = {
       email: email,
       password: password,
-      phone:phone,
-      name:name
+      phone: phone,
+      name: name,
     };
 
     axios
-    .post(`${url}/api/v1/admin/user/register`, data)
-    .then((response) => {
-      console.log("user Created");
-      // navigate("/adminlist")
-      
-      // const accessToken = response.data.data.accessToken;
-      // // setAccessToken(response.data.data.accessToken);
-      // localStorage.setItem("accessToken", accessToken);
-      // setAccessToken(accessToken);
-    })
-    .catch((error) => {
-      console.error("Error:", error.message);
-      if (error.response) {
-        console.error("Status code:", error.response.status);
-        console.error("Response data:", error.response.data);
-      }
-    });
+      .post(`${url}/api/v1/admin/user/register`, data)
+      .then((response) => {
+        console.log("user Created");
+        // navigate("/adminlist")
 
-  }
-  
+        // const accessToken = response.data.data.accessToken;
+        // // setAccessToken(response.data.data.accessToken);
+        // localStorage.setItem("accessToken", accessToken);
+        // setAccessToken(accessToken);
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        if (error.response) {
+          console.error("Status code:", error.response.status);
+          console.error("Response data:", error.response.data);
+        }
+      });
+  };
 
-  
+  const handleDelete = () => {
+    console.log("delete");
+  };
+  const handleView = () => {
+    console.log("view");
+  };
+  const handleEdit = () => {
+    console.log("edit");
+  };
 
-    return (
-      <>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login handleLogin={handleLogin} accessToken={accessToken} />} />
-            <Route
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Login handleLogin={handleLogin} accessToken={accessToken} />
+            }
+          />
+          <Route
             path="/profile"
-            element={<UserProfile handleProfileLoad={handleProfileLoad} handleLogout={handleLogout} accessToken={accessToken}/>}
-            
+            element={
+              <UserProfile
+                handleProfileLoad={handleProfileLoad}
+                handleLogout={handleLogout}
+                accessToken={accessToken}
+              />
+            }
           />
           <Route
             path="/adminlist"
-            element={<AdminList handleUserLoad={handleUserLoad} handleLogout={handleLogout} accessToken={accessToken} />}
+            element={
+              <AdminList
+                handleUserLoad={handleUserLoad}
+                handleLogout={handleLogout}
+                accessToken={accessToken}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                handleView={handleView}
+              />
+            }
           />
-          <Route path="/adduser" element={<AddUser handleAddUser1={handleAddUser1} />} />
-          </Routes>
-        </BrowserRouter>
-      </>
-    );
-
+          <Route
+            path="/adduser"
+            element={<AddUser handleAddUser1={handleAddUser1} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
